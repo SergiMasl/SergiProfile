@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react";
+
 
 import Work from "../../img/work.svg"
 import Reactico from "../../img/reactico.svg"

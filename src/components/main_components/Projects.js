@@ -1,38 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Img1 from "../../img/one.png"
 import Img2 from "../../img/2.png"
 import Img3 from "../../img/three.png"
 
-function Projects() {
+const slideArr =[
+    {
+        "num": "1 / 3",
+        "img": Img1,
+        "descrip": "Project One",
+    },
+    {
+        "num": "2 / 3",
+        "img": Img2,
+        "descrip": "Project Two",
+    },
+    {
+        "num": "3 / 3",
+        "img": Img3,
+        "descrip": "Project Three",
+    }
+];
 
-    let slideIndex = 1;
-    showSlides(slideIndex);
+function Projects() {
+   
+    const [slideIndex, setSlideIndex] = useState(0);
+    const activeSlide = slideArr[slideIndex];
     
     function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.querySelector("mySlides");
-      let dots = document.querySelector("dot");
-      
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
+      let newIndex = slideIndex + n;
+      console.log(newIndex)
+      if(newIndex < 0) {
+        newIndex = slideArr.length-1;
       }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
+      if(newIndex > slideArr.length-1) {
+        newIndex = 0;
       }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
+      setSlideIndex(newIndex)
     }
+
 
     return(
         <div className="projects-root">
@@ -40,35 +46,23 @@ function Projects() {
             <div className="slideshow-container">
 
                 <div className="mySlides fade">
-                    
-                    <div className="numbertext">1 / 3</div>
-                    <img src={Img1} className="slider-img"/>
-                    <div className="text">Project One</div>
+                    <div className="numbertext">{activeSlide.num}</div>
+                    <img src={activeSlide.img} className="slider-img"/>
+                    <div className="text">{activeSlide.descrip}</div>
                 </div>
 
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img src={Img2} className="slider-img"/>
-                    <div class="text">Project Two</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img src={Img3} className="slider-img"/>
-                    <div class="text">Project Three</div>
-                </div>
-
-                <a class="prev" onclick={plusSlides(-1)}>&#10094;</a>
-                <a class="next" onclick={plusSlides(1)}>&#10095;</a>
+                <a 
+                    className="prev" onClick={() => plusSlides(-1)}>&#10094;</a>
+                <a className="next" onClick={() => plusSlides(-1)}>&#10095;</a>
 
             </div>
                 
             <br />
 
             <div className="slider-dotes">
-                <span className="dot" onclick={currentSlide(1)}></span> 
-                <span className="dot" onclick={currentSlide(2)}></span> 
-                <span className="dot" onclick={currentSlide(3)}></span> 
+                {/* <span className="dot" onClick={currentSlide(1)}></span> 
+                <span className="dot" onClick={currentSlide(2)}></span> 
+                <span className="dot" onClick={currentSlide(3)}></span>  */}
             </div>
 
         </div>

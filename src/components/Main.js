@@ -5,15 +5,14 @@ import Experience from './main_components/Experience'
 import Skills from './main_components/Skills'
 import Projects from './main_components/Projects'
 
-function Main() {
+const ComponentsArray = [Bio, Experience, Skills, Projects];
+
+function Main(props) {
+    const ActiveComp = ComponentsArray[props.componentIndex];
+
     return (
         <div className="main">
-            <Bio />
-            <Experience />
-            <div className="line"></div>
-            <Skills />
-            <div className="line"></div>
-            <Projects />
+            <ActiveComp />
         </div>
     )
 }

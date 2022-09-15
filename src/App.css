@@ -23,6 +23,10 @@
   padding: 24px 40px;
 }
 
+.activeNav {
+  border-bottom: 2px solid #ddd;
+}
+
 .header-button:focus {
   border-bottom: 2px solid #ddd;
 }
