@@ -35,7 +35,7 @@
   flex: 1;
 }
 
-.bio-root, .skills-root {
+.bio-root, .skills-root, .projects-root {
   max-width: 700px;
   display: flex;
   flex-direction: column;

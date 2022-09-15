@@ -20,7 +20,7 @@ function Skills() {
                     React.js, Angular
                 </li>
                 {/* <li className="skill-elem">
-                    <img src={Nodico} className="skill-svg"/>
+                    <img src={Icono} className="skill-svg"/>
                     Webpack, Node.js, Babel, NPM, graphql, stylus, GIT
                 </li> */}
                 <li className="skill-elem">

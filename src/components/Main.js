@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react";
+
 import Bio from './main_components/Bio'
 import Experience from './main_components/Experience'
 import Skills from './main_components/Skills'
